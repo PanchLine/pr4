@@ -1,24 +1,25 @@
-﻿// 3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// 6.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main()
 {
     setlocale(NULL, "rus");
-    double x, ln;
-    int n;
-    cout << "Введите число x от которого нужно найти логарифм, и количество шагов n \n";
-    cin >> x >> n;
-    ln = x;
-    while (n >= 2)
+    double x1, x2, a, b, c, D;
+    cout << "Введите А, В, и С\n";
+    cin >> a >> b >> c;
+    D = pow(b, 2) - (4 * a * c);
+    if (D >= 0)
     {
-        if (n % 2 == 0) ln -= pow(x, n) / n;
-        else  ln += pow(x, n) / n;
-        n--;
+        x1 = (-b + sqrt(D)) / (2 * a);
+        cout << "x1=" << x1 << "\n";
+        x2 = (-b - sqrt(D)) / (2 * a);
+        cout << "x2=" << x2 << "\n";
     }
-    cout << "Логарифм= " << ln << "\n";
+    else cout << "Корней нет \n";
     system("pause");
 }
 

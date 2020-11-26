@@ -2,10 +2,24 @@
 //
 
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(NULL, "rus");
+    double x, sin;
+    int n;
+    cout << "Введите число x от которого нужно найти sin, и количество шагов n \n";
+    cin >> x >> n;
+    sin = x;
+    while (n >= 2)
+    {
+        if (n % 2 == 0) sin += pow(x, 2 * n + 1) / (2 * n + 1);
+        else  sin -= pow(x, 2 * n + 1) / 2 * n + 1;
+        n--;
+    }
+    cout << "Синус= " << sin << "\n";
+    system("pause");
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

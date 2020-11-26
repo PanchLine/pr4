@@ -1,4 +1,4 @@
-﻿// 3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// 9.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
@@ -7,18 +7,28 @@ using namespace std;
 int main()
 {
     setlocale(NULL, "rus");
-    double x, ln;
-    int n;
-    cout << "Введите число x от которого нужно найти логарифм, и количество шагов n \n";
-    cin >> x >> n;
-    ln = x;
-    while (n >= 2)
+    int N = 0;
+    cout << "Введите размер массива:\n";
+    cin >> N;
+    int* mass = new int[N];
+    for (int i = 0; i < N; i++)
     {
-        if (n % 2 == 0) ln -= pow(x, n) / n;
-        else  ln += pow(x, n) / n;
-        n--;
+        mass[i] = rand();
+        cout << mass[i] << " ";
     }
-    cout << "Логарифм= " << ln << "\n";
+    int t = mass[N - 1];
+    cout << "\n";
+
+    for (int i = N - 1; i >= 0; i--)
+    {
+        mass[i] = mass[i - 1];
+    }
+    mass[0] = t;
+    for (int i = 0; i < N; i++)
+    {
+        cout << mass[i] << " ";
+    }
+    delete[]mass;
     system("pause");
 }
 
